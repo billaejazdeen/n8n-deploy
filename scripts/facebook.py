@@ -6,6 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+import os
+import platform
 
 def login_to_facebook():
     print("Starting Facebook automation process...")
@@ -16,16 +18,16 @@ def login_to_facebook():
     
     # Run Chrome in headless mode (no GUI)
     print("Setting up headless mode...")
-    chrome_options.add_argument('--headless=new')  # New headless mode (Chrome 109+)
+    chrome_options.add_argument('--headless=new')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--remote-debugging-port=9222')
     chrome_options.add_argument('--window-size=1920,1080')
     
-    print("Initializing Chrome driver version 136...")
-    # Initialize the Chrome driver with webdriver-manager, specifying version 136
-    service = Service(ChromeDriverManager(version="136.0.7103.113").install())
+    print("Initializing Chrome driver...")
+    # Use webdriver-manager to handle ChromeDriver installation
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
     
     try:
