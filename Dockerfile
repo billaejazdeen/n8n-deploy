@@ -13,3 +13,5 @@ ENV PATH="$VENV_PATH/bin:$PATH"
 RUN $VENV_PATH/bin/pip install --no-cache-dir pandas numpy openpyxl
 
 USER node
+# ✅ Copy your script from scripts folder into Docker container
+COPY scripts/py-n8n.py /home/node/py-n8n.py
