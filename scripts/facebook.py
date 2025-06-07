@@ -23,9 +23,9 @@ def login_to_facebook():
     chrome_options.add_argument('--remote-debugging-port=9222')
     chrome_options.add_argument('--window-size=1920,1080')
     
-    print("Initializing Chrome driver...")
-    # Initialize the Chrome driver with webdriver-manager
-    service = Service(ChromeDriverManager().install())
+    print("Initializing Chrome driver version 136...")
+    # Initialize the Chrome driver with webdriver-manager, specifying version 136
+    service = Service(ChromeDriverManager(version="136.0.7103.113").install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
     
     try:
