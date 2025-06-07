@@ -23,6 +23,8 @@ RUN $VENV_PATH/bin/pip install --no-cache-dir pandas numpy openpyxl selenium web
 
 # Copy your selenium script from scripts folder to container
 COPY scripts/py-n8n.py /home/node/py-n8n.py
+COPY scripts/facebook.py /home/node/facebook.py
+
 
 # Set environment variables so Selenium knows where to find chromium
 ENV CHROME_BIN=/usr/bin/chromium-browser
