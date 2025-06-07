@@ -2,7 +2,7 @@ FROM n8nio/n8n:latest
 
 USER root
 
-# Install Python and virtualenv
+# Install Python, Chromium, and dependencies
 RUN apk update && apk add --no-cache \
     python3 \
     py3-pip \
@@ -16,8 +16,8 @@ ENV VENV_PATH=/opt/venv
 RUN python3 -m venv $VENV_PATH
 ENV PATH="$VENV_PATH/bin:$PATH"
 
-# Install Python packages
-RUN pip install --no-cache-dir pandas numpy openpyxl selenium
+# Install Python packages including webdriver_manager
+RUN pip install --no-cache-dir pandas numpy openpyxl selenium webdriver_manager
 
 # Install ChromeDriver that matches Chromium v136
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.113/linux64/chromedriver-linux64.zip && \
