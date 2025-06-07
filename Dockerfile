@@ -9,8 +9,8 @@ RUN python3 -m venv $VENV_PATH
 
 ENV PATH="$VENV_PATH/bin:$PATH"
 
-# Install pandas and numpy inside the virtual environment in one RUN command
-RUN $VENV_PATH/bin/pip install --no-cache-dir pandas numpy openpyxl
+# Install pandas, numpy, selenium and webdriver-manager inside the virtual environment in one RUN command
+RUN $VENV_PATH/bin/pip install --no-cache-dir pandas numpy openpyxl selenium webdriver-manager
 
 USER node
 # ✅ Copy your script from scripts folder into Docker container
